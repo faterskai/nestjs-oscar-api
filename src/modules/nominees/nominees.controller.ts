@@ -3,8 +3,8 @@ import { NomineesService } from './nominees.service';
 import { CreateNomineeDto } from './dto/create-nominee.dto';
 import { PaginatedResponse } from 'src/common/dto/paginated-response.dto';
 import { Nominee } from 'src/modules/nominees/schemas/nominee.schema';
-import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { QueryNomineeDto } from './dto/query-nominee.dto';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { NomineeQueryDto } from './dto/query-nominee.dto';
 import { UpdateNomineeDto } from './dto/update-nominee.dto';
 
 @ApiTags('nominees')
@@ -23,7 +23,7 @@ export class NomineesController {
   @ApiOperation({ summary: 'Returns a list of nominees' })
   @ApiResponse({ status: 200, description: 'Returns a list of nominees' })
   async findAll(
-    @Query() query: QueryNomineeDto,
+    @Query() query: NomineeQueryDto,
   ): Promise<PaginatedResponse<Nominee>> {
     return this.nomineeService.findAll(query);
   }

@@ -4,7 +4,7 @@ import { Nominee } from 'src/modules/nominees/schemas/nominee.schema';
 import { Model } from 'mongoose';
 import { CreateNomineeDto } from './dto/create-nominee.dto';
 import { PaginatedResponse } from './../../common/dto/paginated-response.dto';
-import { QueryNomineeDto } from './dto/query-nominee.dto';
+import { NomineeQueryDto } from './dto/query-nominee.dto';
 
 @Injectable()
 export class NomineesService {
@@ -19,7 +19,7 @@ export class NomineesService {
     return createdNominee.toObject();
   }
 
-  async findAll(filters: QueryNomineeDto): Promise<PaginatedResponse<Nominee>> {
+  async findAll(filters: NomineeQueryDto): Promise<PaginatedResponse<Nominee>> {
     const query: any = {};
 
     // filtering
