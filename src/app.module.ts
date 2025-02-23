@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -6,7 +6,6 @@ import { ConfigModule } from '@nestjs/config';
 import { NomineesController } from './modules/nominees/nominees.controller';
 import { NomineesService } from './modules/nominees/nominees.service';
 import { NomineesModule } from './modules/nominees/nominees.module';
-import { LoggerMiddleware } from './common/middlewares/logger-middleware';
 import { LogModule } from './modules/logs/logs.module';
 
 @Module({
@@ -21,8 +20,4 @@ import { LogModule } from './modules/logs/logs.module';
   controllers: [AppController, NomineesController],
   providers: [AppService, NomineesService],
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoggerMiddleware).forRoutes('*');
-  }
-}
+export class AppModule {}

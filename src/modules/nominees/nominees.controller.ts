@@ -1,11 +1,11 @@
 import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { NomineesService } from './nominees.service';
 import { CreateNomineeDto } from './dto/create-nominee.dto';
-import { PaginatedResponse } from 'src/common/dto/paginated-response.dto';
-import { Nominee } from 'src/modules/nominees/schemas/nominee.schema';
+import { PaginatedResponse } from '../../common/dto/paginated-response.dto';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { NomineeQueryDto } from './dto/query-nominee.dto';
 import { UpdateNomineeDto } from './dto/update-nominee.dto';
+import { Nominee } from './schemas/nominee.schema';
 
 @ApiTags('nominees')
 @Controller('nominees')

@@ -1,8 +1,5 @@
 import { MongooseModule } from '@nestjs/mongoose';
-import {
-  Nominee,
-  NomineeSchema,
-} from 'src/modules/nominees/schemas/nominee.schema';
+import { Nominee, NomineeSchema } from './schemas/nominee.schema';
 import { Module } from '@nestjs/common';
 import { NomineesController } from './nominees.controller';
 import { NomineesService } from './nominees.service';

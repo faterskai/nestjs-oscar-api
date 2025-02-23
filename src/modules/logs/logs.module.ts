@@ -3,8 +3,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { APP_INTERCEPTOR, APP_FILTER } from '@nestjs/core';
 import { Log, LogSchema } from './schemas/log.schema';
 import { LogService } from './logs.service';
-import { LoggingInterceptor } from 'src/common/interceptors/logging-interceptor';
-import { LoggingExceptionFilter } from 'src/common/filters/logging-exception-filter';
+import { LoggingInterceptor } from '../../common/interceptors/logging-interceptor';
+import { LoggingExceptionFilter } from '../../common/filters/logging-exception-filter';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: Log.name, schema: LogSchema }])],

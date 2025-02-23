@@ -1,6 +1,6 @@
 import { IsOptional, IsString } from 'class-validator';
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { QueryDto } from 'src/common/dto/query.dto';
+import { QueryDto } from '../../../common/dto/query.dto';
 
 export class NomineeQueryDto extends QueryDto {
   @ApiPropertyOptional({

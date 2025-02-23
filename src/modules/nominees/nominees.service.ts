@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Nominee } from 'src/modules/nominees/schemas/nominee.schema';
+import { Nominee } from './schemas/nominee.schema';
 import { Model } from 'mongoose';
 import { CreateNomineeDto } from './dto/create-nominee.dto';
 import { PaginatedResponse } from './../../common/dto/paginated-response.dto';
