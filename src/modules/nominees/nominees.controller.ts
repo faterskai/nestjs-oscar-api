@@ -22,36 +22,6 @@ export class NomineesController {
   @Get()
   @ApiOperation({ summary: 'Returns a list of nominees' })
   @ApiResponse({ status: 200, description: 'Returns a list of nominees' })
-  @ApiQuery({
-    name: 'title',
-    required: false,
-    type: String,
-    description: 'Filter by nominee name',
-  })
-  @ApiQuery({
-    name: 'sortBy',
-    required: false,
-    type: String,
-    description: 'Sort order (field)',
-  })
-  @ApiQuery({
-    name: 'sortOrder',
-    required: false,
-    type: String,
-    description: 'Sort order (asc or desc)',
-  })
-  @ApiQuery({
-    name: 'page',
-    required: false,
-    type: Number,
-    description: 'Pagination - page number',
-  })
-  @ApiQuery({
-    name: 'limit',
-    required: false,
-    type: Number,
-    description: 'Pagination - results per page',
-  })
   async findAll(
     @Query() query: QueryNomineeDto,
   ): Promise<PaginatedResponse<Nominee>> {
