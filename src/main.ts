@@ -2,8 +2,6 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { BadRequestException, ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { ValidationExceptionFilter } from './common/filters/validation-exception-filter';
-import { HttpExceptionFilter } from './common/filters/http-exception-filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -23,8 +21,6 @@ async function bootstrap() {
       },
     }),
   );
-  //app.useGlobalFilters(new HttpExceptionFilter());
-  //app.useGlobalFilters(new ValidationExceptionFilter());
 
   const config = new DocumentBuilder()
     .setTitle('Oscar API')

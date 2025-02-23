@@ -7,6 +7,7 @@ import { NomineesController } from './modules/nominees/nominees.controller';
 import { NomineesService } from './modules/nominees/nominees.service';
 import { NomineesModule } from './modules/nominees/nominees.module';
 import { LoggerMiddleware } from './common/middlewares/logger-middleware';
+import { LogModule } from './modules/logs/logs.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { LoggerMiddleware } from './common/middlewares/logger-middleware';
       process.env.MONGO_URI || 'mongodb://root:example@mongodb:27017/',
     ),
     NomineesModule,
+    LogModule,
   ],
   controllers: [AppController, NomineesController],
   providers: [AppService, NomineesService],
