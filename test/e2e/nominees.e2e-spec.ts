@@ -2,31 +2,26 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from '../../src/app.module';
-import { MongoMemoryServer } from 'mongodb-memory-server';
-import { MongooseModule, getModelToken } from '@nestjs/mongoose';
+//import { MongoMemoryServer } from 'mongodb-memory-server';
+import { getModelToken } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import {
-  Nominee,
-  NomineeSchema,
-} from '../../src/modules/nominees/schemas/nominee.schema';
+import { Nominee } from '../../src/modules/nominees/schemas/nominee.schema';
 
 describe('Nominees E2E', () => {
   let app: INestApplication;
-  let mongod: MongoMemoryServer;
+  //let mongod: MongoMemoryServer;
   let nomineeModel: Model<Nominee>;
   let server: any;
 
   beforeAll(async () => {
     // Set up an in-memory MongoDB instance
-    mongod = await MongoMemoryServer.create();
-    const mongoUri = mongod.getUri();
+    // mongod = await MongoMemoryServer.create();
+    // const mongoUri = mongod.getUri();
+
+    // process.env.MONGO_URI = mongoUri;
 
     const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [
-        AppModule,
-        MongooseModule.forRoot(mongoUri),
-        MongooseModule.forFeature([{ name: 'Nominee', schema: NomineeSchema }]),
-      ],
+      imports: [AppModule],
     }).compile();
 
     app = moduleFixture.createNestApplication();
@@ -64,7 +59,7 @@ describe('Nominees E2E', () => {
   afterAll(async () => {
     await nomineeModel.deleteMany({});
     await app.close();
-    await mongod.stop();
+    //await mongod.stop();
   });
 
   let createdNomineeId: string;

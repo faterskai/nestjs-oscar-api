@@ -49,6 +49,9 @@ $ npm run start:prod
 
 ## Run tests
 
+WIP: MongoMemoryServer
+Clean database needed on the given MONGO_URI
+
 ```bash
 # e2e tests
 $ npm run test:e2e
