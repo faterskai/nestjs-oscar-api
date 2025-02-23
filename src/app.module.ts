@@ -12,7 +12,7 @@ import { LogModule } from './modules/logs/logs.module';
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     MongooseModule.forRoot(
-      process.env.MONGO_URI || 'mongodb://root:example@mongodb:27017/',
+      process.env.MONGO_URI || 'mongodb://root:example@mongodb:27017/oscar',
     ),
     NomineesModule,
     LogModule,

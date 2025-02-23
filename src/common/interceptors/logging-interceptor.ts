@@ -17,6 +17,9 @@ export class LoggingInterceptor implements NestInterceptor {
 
     return next.handle().pipe(
       tap(async (response) => {
+        const statusCode = context.switchToHttp().getResponse().statusCode;
+        console.log(`[HTTP] ${request.method} ${request.url} - ${statusCode}`);
+
         await this.logService.logRequest({
           method,
           url,
@@ -24,7 +27,7 @@ export class LoggingInterceptor implements NestInterceptor {
           body,
           params,
           query,
-          statusCode: context.switchToHttp().getResponse().statusCode,
+          statusCode,
           response,
         });
       }),

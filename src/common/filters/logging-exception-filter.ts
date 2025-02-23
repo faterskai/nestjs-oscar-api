@@ -39,6 +39,8 @@ export class LoggingExceptionFilter implements ExceptionFilter {
       error: errorType,
     };
 
+    console.log(`[HTTP] ${request.method} ${request.url} - ${status}`);
+
     // Log the request and error
     await this.logService.logRequest({
       method: request.method,

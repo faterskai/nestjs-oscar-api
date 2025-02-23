@@ -1,0 +1,23 @@
+config:
+  target: 'http://localhost:3000' # Change this if needed
+  phases:
+    - duration: 60 # Test for 60 seconds
+      arrivalRate: 20 # Start with 20 requests per second
+      rampTo: 100 # Gradually increase to 100 req/sec
+      name: 'Ramp up traffic'
+    - duration: 30 # Hold high traffic for 30 seconds
+      arrivalRate: 100
+      name: 'Sustained load'
+
+scenarios:
+  - flow:
+      - post:
+          url: '/nominees'
+          json:
+            title: 'Stress Test Movie'
+            description: 'A movie created under extreme load.'
+            release: 2025
+            director: 'Load Tester'
+            winner: false
+      - get:
+          url: '/nominees?sortBy=title&sortOrder=asc&page=1&limit=10'

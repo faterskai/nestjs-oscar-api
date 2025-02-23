@@ -24,13 +24,15 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongodb:27017/
       ME_CONFIG_BASICAUTH: false
 
-  # nestjs-backend:
-  #   build: .
-  #   container_name: nestjs-backend
-  #   restart: always
-  #   depends_on:
-  #     - mongodb
-  #   ports:
-  #     - '3000:3000'
-  #   env_file:
-  #     - .env
+  nestjs-backend:
+    build: .
+    container_name: nestjs-backend
+    restart: always
+    depends_on:
+      - mongodb
+    ports:
+      - '3000:3000'
+    environment:
+      - MONGO_URI=mongodb://root:example@mongodb:27017/
+      - PORT=3000
+

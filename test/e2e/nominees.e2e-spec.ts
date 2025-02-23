@@ -163,10 +163,10 @@ describe('Nominees E2E', () => {
       .get('/nominees?sortBy=title&sortOrder=asc&page=1&limit=2')
       .expect(200);
 
-    expect(response.body.data.length).toBe(2); // ✅ Only 2 results on first page
-    expect(Number(response.body.total)).toBe(4); // ✅ Total number of nominees
+    expect(response.body.data.length).toBe(2);
+    expect(Number(response.body.total)).toBe(4);
     expect(Number(response.body.currentPage)).toBe(1);
-    expect(Number(response.body.totalPages)).toBe(2); // ✅ 3 nominees, 2 per page → 2 pages
+    expect(Number(response.body.totalPages)).toBe(2);
   });
 
   // Test Pagination (Page 2)
@@ -175,7 +175,7 @@ describe('Nominees E2E', () => {
       .get('/nominees?sortBy=title&sortOrder=asc&page=2&limit=2')
       .expect(200);
 
-    expect(response.body.data.length).toBe(2); // ✅ Only 1 nominee left on page 2
+    expect(response.body.data.length).toBe(2);
     expect(Number(response.body.currentPage)).toBe(2);
     expect(Number(response.body.totalPages)).toBe(2);
   });
