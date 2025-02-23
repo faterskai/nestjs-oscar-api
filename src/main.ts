@@ -23,8 +23,8 @@ async function bootstrap() {
       },
     }),
   );
-  app.useGlobalFilters(new HttpExceptionFilter());
-  app.useGlobalFilters(new ValidationExceptionFilter());
+  //app.useGlobalFilters(new HttpExceptionFilter());
+  //app.useGlobalFilters(new ValidationExceptionFilter());
 
   const config = new DocumentBuilder()
     .setTitle('Oscar API')

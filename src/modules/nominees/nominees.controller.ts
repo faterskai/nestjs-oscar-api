@@ -5,6 +5,7 @@ import { PaginatedResponse } from 'src/common/dto/paginated-response.dto';
 import { Nominee } from 'src/modules/nominees/schemas/nominee.schema';
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { QueryNomineeDto } from './dto/query-nominee.dto';
+import { UpdateNomineeDto } from './dto/update-nominee.dto';
 
 @ApiTags('nominees')
 @Controller('nominees')
@@ -69,7 +70,7 @@ export class NomineesController {
   @ApiResponse({ status: 201, description: 'Modifies a specific nominee' })
   async update(
     @Param('id') id: string,
-    @Body() updateNomineeDto: Partial<CreateNomineeDto>,
+    @Body() updateNomineeDto: UpdateNomineeDto,
   ): Promise<Nominee> {
     return this.nomineeService.update(id, updateNomineeDto);
   }
