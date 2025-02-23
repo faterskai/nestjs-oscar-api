@@ -30,6 +30,7 @@ export class QueryNomineeDto {
   @ApiPropertyOptional({ description: 'Pagination - page number', example: 1 })
   @IsOptional()
   @IsInt()
+  @Transform(({ value }) => parseInt(value))
   page?: number;
 
   @ApiPropertyOptional({
