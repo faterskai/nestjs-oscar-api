@@ -9,6 +9,30 @@ config:
       arrivalRate: 100
       name: 'Sustained load'
 
+    # - duration: 30
+    #   arrivalRate: 50
+    #   name: 'Warm-up Phase'
+
+    # - duration: 60
+    #   arrivalRate: 100
+    #   name: 'Light Load Phase'
+
+    # - duration: 60
+    #   arrivalRate: 250
+    #   name: 'Moderate Load Phase'
+
+    # - duration: 60
+    #   arrivalRate: 500
+    #   name: 'Heavy Stress Phase'
+
+    # - duration: 60
+    #   arrivalRate: 1000
+    #   name: 'Extreme Load Phase'
+
+    # - duration: 60
+    #   arrivalRate: 500
+    #   name: 'Cool-down Phase'
+
 scenarios:
   - flow:
       - post:
