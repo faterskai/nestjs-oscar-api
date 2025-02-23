@@ -50,6 +50,7 @@ $ npm run start:prod
 ## Run tests
 
 WIP: MongoMemoryServer
+
 Clean database needed on the given MONGO_URI
 
 ```bash
@@ -61,8 +62,6 @@ $ npm run test:e2e
 
 ```bash
 npm install -g artillery
-# OR if you want it as a dev dependency
-npm install --save-dev artillery
 
 artillery run test/stress-test.yml
 ```
