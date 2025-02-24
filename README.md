@@ -38,7 +38,7 @@ $ npm run start
 $ npm run start:dev
 
 # debug mode
-$ npm run start:dev
+$ npm run start:debug
 
 # build
 $ npm run build
