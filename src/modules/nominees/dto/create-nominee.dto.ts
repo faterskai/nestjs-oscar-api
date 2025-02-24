@@ -1,4 +1,4 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateNomineeDto {
@@ -22,7 +22,7 @@ export class CreateNomineeDto {
   @IsNotEmpty()
   director: string;
 
-  @ApiProperty({ example: 'true', description: 'Győztes-e' })
+  @ApiPropertyOptional({ example: 'true', description: 'Győztes-e' })
   @IsOptional()
   winner: boolean;
 }
