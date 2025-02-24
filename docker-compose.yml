@@ -33,5 +33,5 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - MONGO_URI=mongodb://root:example@mongodb:27017/
+      - MONGO_URI=mongodb://root:example@mongodb:27017/oscar?authSource=admin
       - PORT=3000
