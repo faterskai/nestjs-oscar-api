@@ -25,6 +25,10 @@ export class NomineesService {
     // filtering
     if (filters.title) query.title = { $regex: filters.title, $options: 'i' };
 
+    if (filters.winner !== undefined) {
+      query.winner = filters.winner;
+    }
+
     // sorting
     const sortField = filters.sortBy || 'createdAt';
     const sortOrder = filters.sortOrder === 'asc' ? 1 : -1;

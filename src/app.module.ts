@@ -12,7 +12,8 @@ import { LogModule } from './modules/logs/logs.module';
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     MongooseModule.forRoot(
-      process.env.MONGO_URI || 'mongodb://root:example@localhost:27017/',
+      process.env.MONGO_URI ||
+        'mongodb://root:example@localhost:27017/oscar?authSource=admin',
     ),
     NomineesModule,
     LogModule,
