@@ -1,47 +1,24 @@
 config:
-  target: 'http://localhost:3000' # Change this if needed
+  target: 'http://localhost:3000'
   phases:
-    - duration: 60 # Test for 60 seconds
-      arrivalRate: 20 # Start with 20 requests per second
-      rampTo: 100 # Gradually increase to 100 req/sec
+    - duration: 60
+      arrivalRate: 20
+      rampTo: 100
       name: 'Ramp up traffic'
-    - duration: 30 # Hold high traffic for 30 seconds
+    - duration: 30
       arrivalRate: 100
       name: 'Sustained load'
-
-    # - duration: 30
-    #   arrivalRate: 50
-    #   name: 'Warm-up Phase'
-
-    # - duration: 60
-    #   arrivalRate: 100
-    #   name: 'Light Load Phase'
-
-    # - duration: 60
-    #   arrivalRate: 250
-    #   name: 'Moderate Load Phase'
-
-    # - duration: 60
-    #   arrivalRate: 500
-    #   name: 'Heavy Stress Phase'
-
-    # - duration: 60
-    #   arrivalRate: 1000
-    #   name: 'Extreme Load Phase'
-
-    # - duration: 60
-    #   arrivalRate: 500
-    #   name: 'Cool-down Phase'
-
+  processor: "./processor.js"
 scenarios:
   - flow:
+      - function: "generateRandomData"
       - post:
           url: '/nominees'
           json:
-            title: 'Stress Test Movie'
-            description: 'A movie created under extreme load.'
-            release: 2025
-            director: 'Load Tester'
-            winner: false
+            title: "{{ title }}"
+            description: "{{ description }}"
+            release: "{{ release }}"
+            director: "{{ director }}"
+            winner: "{{ winner }}"
       - get:
           url: '/nominees?sortBy=title&sortOrder=asc&page=1&limit=10'
